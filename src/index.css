@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #f6f8ff;
+  --surface: rgba(255, 255, 255, 0.9);
+  --surface-muted: #eef2ff;
+  --text-primary: #111827;
+  --text-secondary: #475467;
+  --text-tertiary: #667085;
+  --border: rgba(99, 102, 241, 0.14);
+  --brand: #5b5ce6;
+  --brand-strong: #4b4bd9;
+  --brand-soft: rgba(91, 92, 230, 0.1);
+  --button-primary-bg: #5b5ce6;
+  --button-primary-text: #ffffff;
+  --button-primary-hover: #4b4bd9;
+  --button-primary-shadow: rgba(91, 92, 230, 0.24);
+}
+
+.dark {
+  --bg: #020817;
+  --surface: rgba(15, 23, 42, 0.9);
+  --surface-muted: #0f172a;
+  --text-primary: #e2e8f0;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #94a3b8;
+  --border: rgba(148, 163, 184, 0.18);
+  --brand: #818cf8;
+  --brand-strong: #a5b4fc;
+  --brand-soft: rgba(99, 102, 241, 0.14);
+  --button-primary-bg: #818cf8;
+  --button-primary-text: #0f172a;
+  --button-primary-hover: #a5b4fc;
+  --button-primary-shadow: rgba(129, 140, 248, 0.35);
+}
+
+html {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: Inter, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text-primary);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
