@@ -40,6 +40,8 @@ export const en: TranslationSet = {
     forgot: 'Forgot password?',
     loginAction: 'Login',
     registerAction: 'Create account',
+    loginSuccess: 'Login successful',
+    registerSuccess: 'Registration successful',
     continueWith: 'Or continue with',
     google: 'Google',
     apple: 'Apple',
@@ -51,7 +53,34 @@ export const en: TranslationSet = {
     hidePassword: 'Hide password',
     showConfirmPassword: 'Show confirm password',
     hideConfirmPassword: 'Hide confirm password',
-    helper: 'Use 8+ characters with a mix of letters and numbers.',
+    helper: 'Use 8+ characters with uppercase, lowercase, a number, and a special character.',
     legal: 'By continuing, you agree to our Terms and Privacy Policy.',
+  },
+  validation: {
+    email: {
+      required: 'Email is required',
+      invalid: 'Please enter a valid email address',
+      max: 'Email must not exceed 254 characters',
+    },
+    password: {
+      required: 'Password is required',
+      min: 'Password must be at least 8 characters long',
+      max: 'Password must not exceed 72 characters',
+      pattern: 'Password must contain uppercase, lowercase, number and special character',
+    },
+    confirmPassword: {
+      required: 'Confirm password is required',
+      mismatch: 'Passwords do not match',
+    },
+    nameAr: {
+      required: 'Arabic name is required',
+      min: 'Arabic name must be at least 2 characters long',
+      max: 'Arabic name must not exceed 50 characters',
+    },
+    nameEn: {
+      required: 'English name is required',
+      min: 'English name must be at least 2 characters long',
+      max: 'English name must not exceed 50 characters',
+    },
   },
 };

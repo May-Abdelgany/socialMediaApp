@@ -1,6 +1,6 @@
-import { LanguageToggle } from '../language/LanguageToggle';
-import { ThemeToggle } from '../theme/ThemeToggle';
-import type { Locale, ThemeMode } from '../../types/auth';
+import { LanguageToggle } from "../language/LanguageToggle";
+import { ThemeToggle } from "../theme/ThemeToggle";
+import type { Locale, ThemeMode } from "../../types/auth";
 
 type AuthHeaderProps = {
   locale: Locale;
@@ -21,11 +21,13 @@ export function AuthHeader({
   themeLightLabel,
   themeDarkLabel,
   compact = false,
-  className = '',
+  className = "",
 }: AuthHeaderProps) {
   if (compact) {
     return (
-      <div className={`flex items-center w-full gap-2 ${className} justify-end`}>
+      <div
+        className={`flex items-center w-full gap-2 ${className} justify-end`}
+      >
         <LanguageToggle locale={locale} onToggle={onToggleLanguage} />
         <ThemeToggle
           theme={theme}
@@ -39,11 +41,11 @@ export function AuthHeader({
 
   return (
     <div className={`flex items-center justify-between gap-3 ${className}`}>
-      <div className="flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--brand)] text-sm font-bold text-white shadow-lg shadow-[rgba(79,70,229,0.3)]">
-          S
-        </div>
-        <span className="text-lg font-semibold text-[var(--text-primary)]">Sociala</span>
+      <div className="flex items-center">
+        <img src="/logo.svg" alt="Social Media" className="w-13 object-cover" />
+        <span className="text-lg font-semibold text-[var(--text-primary)]">
+          Sociala
+        </span>
       </div>
 
       <div className="flex items-center gap-2">

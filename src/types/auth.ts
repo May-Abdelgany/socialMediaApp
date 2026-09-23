@@ -49,6 +49,8 @@ export type TranslationSet = {
     forgot: string;
     loginAction: string;
     registerAction: string;
+    loginSuccess: string;
+    registerSuccess: string;
     continueWith: string;
     google: string;
     apple: string;
@@ -62,5 +64,32 @@ export type TranslationSet = {
     hideConfirmPassword: string;
     helper: string;
     legal: string;
+  };
+  validation: {
+    email: {
+      required: string;
+      invalid: string;
+      max: string;
+    };
+    password: {
+      required: string;
+      min: string;
+      max: string;
+      pattern: string;
+    };
+    confirmPassword: {
+      required: string;
+      mismatch: string;
+    };
+    nameAr: {
+      required: string;
+      min: string;
+      max: string;
+    };
+    nameEn: {
+      required: string;
+      min: string;
+      max: string;
+    };
   };
 };

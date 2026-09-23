@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { LoginPage } from './pages/auth/LoginPage';
-import { RegisterPage } from './pages/auth/RegisterPage';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import type { Locale, ThemeMode } from './types/auth';
+import { LoginPage } from './features/auth/components/LoginPage';
+import { RegisterPage } from './features/auth/components/RegisterPage';
 
 const getInitialTheme = (): ThemeMode => {
   const saved = localStorage.getItem('social-theme');
@@ -32,6 +35,20 @@ function App() {
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-[var(--bg)] text-[var(--text-primary)] transition-colors duration-200">
+        <ToastContainer
+          position="top-left"
+          autoClose={4000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme={theme === 'dark' ? 'dark' : 'light'}
+          closeButton={true}
+          rtl={locale === 'ar'}
+        />
+
         <Routes>
           <Route path="/" element={<Navigate to="/login" replace />} />
           <Route

@@ -11,5 +11,5 @@ export function FormMessage({ children, variant = 'default' }: FormMessageProps)
     error: 'text-red-600 dark:text-red-400',
   };
 
-  return <div className={`text-xs ${classes[variant]}`}>- {children}</div>;
+  return <div className={`text-xs ${classes[variant]} mt-2.5` }>- {children}</div>;
 }
