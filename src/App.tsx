@@ -93,7 +93,23 @@ function App() {
             />
           </Route>
           <Route element={<ProtectedRoute />}>
-            <Route path="/home" element={<Homepage />} />
+            <Route
+              path="/home"
+              element={
+                <Homepage
+                  locale={locale}
+                  theme={theme}
+                  onToggleLanguage={() =>
+                    setLocale((current) => (current === "en" ? "ar" : "en"))
+                  }
+                  onToggleTheme={() =>
+                    setTheme((current) =>
+                      current === "dark" ? "light" : "dark",
+                    )
+                  }
+                />
+              }
+            />
           </Route>
         </Routes>
       </div>

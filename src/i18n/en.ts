@@ -2,11 +2,27 @@ import type { TranslationSet } from '../types/auth';
 
 export const en: TranslationSet = {
   nav: {
-    login: 'Login',
-    register: 'Register',
-    language: 'العربية',
-    themeLight: 'Light mode',
-    themeDark: 'Dark mode',
+    login: "Login",
+    register: "Register",
+    language: "العربية",
+    themeLight: "Light mode",
+    themeDark: "Dark mode",
+    home: "Home",
+    explore: "Explore",
+    notifications: "Notifications",
+    messages: "Messages",
+    create: "Create",
+    online: "Online",
+    language2: "Language",
+    english: "English",
+    arabic: "Arabic",
+    theme: "Theme",
+    lightMode: "Light mode",
+    darkMode: "Dark mode",
+    logout: "Logout",
+    toggleNavigation: "Toggle navigation menu",
+    socialaLogo: "Sociala logo",
+    logoutSuccess: "Logged out successfully",
   },
   brand: {
     badge: 'Social network',
@@ -83,4 +99,6 @@ export const en: TranslationSet = {
       max: 'English name must not exceed 50 characters',
     },
   },
+ 
+
 };

@@ -7,6 +7,22 @@ export const ar: TranslationSet = {
     language: "English",
     themeLight: "الوضع الفاتح",
     themeDark: "الوضع الداكن",
+    home: "الرئيسية",
+    explore: "استكشف",
+    notifications: "الإشعارات",
+    messages: "الرسائل",
+    create: "إنشاء",
+    online: "متصل",
+    language2: "اللغة",
+    english: "الإنجليزية",
+    arabic: "العربية",
+    theme: "المظهر",
+    lightMode: "الوضع الفاتح",
+    darkMode: "الوضع الداكن",
+    logout: "تسجيل الخروج",
+    toggleNavigation: "فتح قائمة التنقل",
+    socialaLogo: "شعار سوشيالا",
+    logoutSuccess: "تم تسجيل الخروج بنجاح",
   },
   brand: {
     badge: "شبكة اجتماعية",
@@ -53,7 +69,8 @@ export const ar: TranslationSet = {
     hidePassword: "إخفاء كلمة المرور",
     showConfirmPassword: "إظهار تأكيد كلمة المرور",
     hideConfirmPassword: "إخفاء تأكيد كلمة المرور",
-    helper: "استخدم 8 أحرف على الأقل وتتضمن أحرفًا كبيرة وصغيرة ورقمًا ورمزًا خاصًا.",
+    helper:
+      "استخدم 8 أحرف على الأقل وتتضمن أحرفًا كبيرة وصغيرة ورقمًا ورمزًا خاصًا.",
     legal: "بالمتابعة، أنت توافق على الشروط وسياسة الخصوصية.",
   },
   validation: {
@@ -66,7 +83,8 @@ export const ar: TranslationSet = {
       required: "كلمة المرور مطلوبة",
       min: "كلمة المرور يجب أن تكون 8 أحرف على الأقل",
       max: "كلمة المرور يجب ألا تتجاوز 72 حرفًا",
-      pattern: "يجب أن تحتوي كلمة المرور على حرف كبير، وحرف صغير، ورقم، ورمز خاص",
+      pattern:
+        "يجب أن تحتوي كلمة المرور على حرف كبير، وحرف صغير، ورقم، ورمز خاص",
     },
     confirmPassword: {
       required: "تأكيد كلمة المرور مطلوب",

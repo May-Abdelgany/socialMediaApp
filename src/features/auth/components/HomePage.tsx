@@ -1,12 +1,34 @@
+import { Navbar } from "../../../shared/components/Navbar";
+import type { Locale, ThemeMode } from "../../../types/auth";
 import { useAppSelector } from "../user/hooks";
 import { selectUser } from "../user/userSelectors";
 
-export function Homepage() {
+type HomepageProps = {
+  locale: Locale;
+  theme: ThemeMode;
+  onToggleLanguage: () => void;
+  onToggleTheme: () => void;
+};
+
+export function Homepage({
+  locale,
+  theme,
+  onToggleLanguage,
+  onToggleTheme,
+}: HomepageProps) {
   const user = useAppSelector(selectUser);
+
+  const userName = user?.nameEn || "Sociala User";
+
   return (
-    <div>
-      <h1>Welcome to the Homepage {user?.nameEn}</h1>
-      <p>This is the main landing page of the application.</p>
+    <div className="min-h-screen bg-[var(--bg)] text-[var(--text-primary)]">
+      <Navbar
+        locale={locale}
+        theme={theme}
+        onToggleLanguage={onToggleLanguage}
+        onToggleTheme={onToggleTheme}
+        userName={userName}
+      />
     </div>
   );
 }

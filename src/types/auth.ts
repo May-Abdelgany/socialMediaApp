@@ -1,6 +1,6 @@
-export type Locale = 'en' | 'ar';
-export type ThemeMode = 'light' | 'dark';
-export type AuthMode = 'login' | 'register';
+export type Locale = "en" | "ar";
+export type ThemeMode = "light" | "dark";
+export type AuthMode = "login" | "register";
 
 export type AuthFormState = {
   email: string;
@@ -17,6 +17,22 @@ export type TranslationSet = {
     language: string;
     themeLight: string;
     themeDark: string;
+    home: string;
+    explore: string;
+    notifications: string;
+    messages: string;
+    create: string;
+    online: string;
+    language2: string;
+    english: string;
+    arabic: string;
+    theme: string;
+    lightMode: string;
+    darkMode: string;
+    logout: string;
+    toggleNavigation: string;
+    socialaLogo: string;
+    logoutSuccess: string;
   };
   brand: {
     badge: string;
