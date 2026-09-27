@@ -16,6 +16,10 @@ import type { LoginRequest } from "../interfaces/loginRequest";
 import { loginSchema } from "../validation/login.schema";
 import { login } from "../apis/auth.api";
 import getApiErrorMessage from "../../../shared/error/apiErrorMessage";
+import type { LoginResponseData } from "../interfaces/loginResponse";
+import type { GeneralResponse } from "../../../shared/interfaces/generalResponse";
+import { useAppDispatch } from "../user/hooks";
+import { setUser } from "../user/userSlice";
 
 type LoginPageProps = {
   locale: Locale;
@@ -33,6 +37,7 @@ export function LoginPage({
   const t = getDictionary(locale);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const formik = useFormik<LoginRequest>({
     initialValues: {
@@ -44,13 +49,15 @@ export function LoginPage({
 
     onSubmit: async (values, { setSubmitting }) => {
       try {
-      await login({
+        const response: GeneralResponse<LoginResponseData> = await login({
           email: values.email.trim(),
           password: values.password,
         });
         toast.success(t.auth.loginSuccess);
+        localStorage.setItem("userData", JSON.stringify(response.data));
+        dispatch(setUser(response.data.user));
         setTimeout(() => {
-          navigate("/login");
+          navigate("/home");
         }, 4000);
       } catch (error: any) {
         const messages = getApiErrorMessage(error, locale);
