@@ -7,6 +7,8 @@ import type { Locale, ThemeMode } from "./types/auth";
 import { LoginPage } from "./features/auth/components/LoginPage";
 import { RegisterPage } from "./features/auth/components/RegisterPage";
 import { Homepage } from "./features/auth/components/HomePage";
+import { PublicRoute } from "./guards/PublicRoute";
+import { ProtectedRoute } from "./guards/ProtectedRoute";
 
 const getInitialTheme = (): ThemeMode => {
   const saved = localStorage.getItem("social-theme");
@@ -53,38 +55,46 @@ function App() {
         />
 
         <Routes>
-          <Route path="/" element={<Navigate to="/login" replace />} />
-          <Route
-            path="/login"
-            element={
-              <LoginPage
-                locale={locale}
-                theme={theme}
-                onToggleTheme={() =>
-                  setTheme((current) => (current === "dark" ? "light" : "dark"))
-                }
-                onToggleLanguage={() =>
-                  setLocale((current) => (current === "en" ? "ar" : "en"))
-                }
-              />
-            }
-          />
-          <Route
-            path="/register"
-            element={
-              <RegisterPage
-                locale={locale}
-                theme={theme}
-                onToggleTheme={() =>
-                  setTheme((current) => (current === "dark" ? "light" : "dark"))
-                }
-                onToggleLanguage={() =>
-                  setLocale((current) => (current === "en" ? "ar" : "en"))
-                }
-              />
-            }
-          />
-          <Route path="/home" element={<Homepage />} />
+          <Route element={<PublicRoute />}>
+            <Route path="/" element={<Navigate to="/login" replace />} />
+            <Route
+              path="/login"
+              element={
+                <LoginPage
+                  locale={locale}
+                  theme={theme}
+                  onToggleTheme={() =>
+                    setTheme((current) =>
+                      current === "dark" ? "light" : "dark",
+                    )
+                  }
+                  onToggleLanguage={() =>
+                    setLocale((current) => (current === "en" ? "ar" : "en"))
+                  }
+                />
+              }
+            />
+            <Route
+              path="/register"
+              element={
+                <RegisterPage
+                  locale={locale}
+                  theme={theme}
+                  onToggleTheme={() =>
+                    setTheme((current) =>
+                      current === "dark" ? "light" : "dark",
+                    )
+                  }
+                  onToggleLanguage={() =>
+                    setLocale((current) => (current === "en" ? "ar" : "en"))
+                  }
+                />
+              }
+            />
+          </Route>
+          <Route element={<ProtectedRoute />}>
+            <Route path="/home" element={<Homepage />} />
+          </Route>
         </Routes>
       </div>
     </BrowserRouter>
