@@ -38,7 +38,7 @@ export function LoginPage({
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-
+  const [rememberMe, setRememberMe] = useState(false);
   const formik = useFormik<LoginRequest>({
     initialValues: {
       email: "",
@@ -54,7 +54,11 @@ export function LoginPage({
           password: values.password,
         });
         toast.success(t.auth.loginSuccess);
-        localStorage.setItem("userData", JSON.stringify(response.data));
+        if (rememberMe) {
+          localStorage.setItem("userData", JSON.stringify(response.data));
+        } else {
+          sessionStorage.setItem("userData", JSON.stringify(response.data));
+        }
         dispatch(setUser(response.data.user));
         setTimeout(() => {
           navigate("/home");
@@ -137,6 +141,8 @@ export function LoginPage({
           <label className="flex items-center gap-2 text-[var(--text-secondary)]">
             <input
               type="checkbox"
+              checked={rememberMe}
+              onChange={(e) => setRememberMe(e.target.checked)}
               className="h-4 w-4 cursor-pointer rounded border-[var(--border)] bg-[var(--surface-muted)] text-[var(--brand)] accent-[var(--brand)]"
             />
             {t.auth.remember}

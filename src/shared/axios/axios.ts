@@ -19,7 +19,7 @@ declare module "axios" {
 // Add token only when the request has `requiresAuth: true`
 api.interceptors.request.use((config) => {
   if (config.requiresAuth) {
-    const rawUserData = localStorage.getItem("userData");
+    const rawUserData = localStorage.getItem("userData")||sessionStorage.getItem("userData");
     const userData = rawUserData ? JSON.parse(rawUserData) : {};
     const token = userData?.user?.accessToken ?? "";
 

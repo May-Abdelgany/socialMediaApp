@@ -62,6 +62,7 @@ export function Navbar({
       await logout();
       toast.success(t.nav.logoutSuccess);
       localStorage.removeItem("userData");
+      sessionStorage.removeItem("userData");
       dispatch(logoutUser());
       setTimeout(() => {
         navigate("/login");
