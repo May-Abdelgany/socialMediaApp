@@ -1,4 +1,4 @@
-import { api } from "../../../shared/axios/axios";
+import { api } from "../../../shared/interceptors/axios";
 import { hashPassword } from "../../../shared/utils/hashPassword";
 import type { GeneralResponse } from "../../../shared/interfaces/generalResponse";
 import type { LoginRequest } from "../interfaces/loginRequest";

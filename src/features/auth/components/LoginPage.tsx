@@ -55,9 +55,9 @@ export function LoginPage({
         });
         toast.success(t.auth.loginSuccess);
         if (rememberMe) {
-          localStorage.setItem("userData", JSON.stringify(response.data));
+          localStorage.setItem("userData", JSON.stringify(response.data.user));
         } else {
-          sessionStorage.setItem("userData", JSON.stringify(response.data));
+          sessionStorage.setItem("userData", JSON.stringify(response.data.user));
         }
         dispatch(setUser(response.data.user));
         setTimeout(() => {

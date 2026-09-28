@@ -1,6 +1,6 @@
-import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import type { UserState } from './userState';
-import type { User } from './../interfaces/loginResponse';
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import type { UserState } from "./userState";
+import type { User } from "./../interfaces/loginResponse";
 
 const initialState: UserState = {
   data: null,
@@ -10,7 +10,7 @@ const initialState: UserState = {
 };
 
 const userSlice = createSlice({
-  name: 'user',
+  name: "user",
 
   initialState,
 
@@ -38,14 +38,31 @@ const userSlice = createSlice({
       state.data = null;
       state.isLoggedIn = false;
     },
+
+    updateTokens: (
+      state,
+      action: PayloadAction<{
+        accessToken: string;
+        refreshToken?: string;
+      }>,
+    ) => {
+      if (!state.data) return;
+
+      state.data.accessToken = action.payload.accessToken;
+
+      if (action.payload.refreshToken) {
+        state.data.refreshToken = action.payload.refreshToken;
+      }
+      if (localStorage.getItem("userData")) {
+        localStorage.setItem("userData", JSON.stringify(state.data));
+      } else {
+        sessionStorage.setItem("userData", JSON.stringify(state.data));
+      }
+    },
   },
 });
 
-export const {
-  setUser,
-  updateUser,
-  clearUser,
-  logoutUser,
-} = userSlice.actions;
+export const { setUser, updateUser, clearUser, logoutUser, updateTokens } =
+  userSlice.actions;
 
 export default userSlice.reducer;
